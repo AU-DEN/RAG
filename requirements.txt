@@ -1,8 +1,13 @@
-google-generativeai
-sentence-transformers
-numpy
-PyPDF2
-faiss-cpu
-scikit-learn
-torch
-transformers
+# --- Core RAG Pipeline ---
+google-generativeai      # For calling the Gemini 2.5 API
+pypdf                    # For the Ingestion Module (Parsing source.pdf)
+numpy                    # For array manipulation and sorting top-k chunks
+
+# --- Local Embeddings & Faithfulness Loop (Novelty 1) ---
+sentence-transformers    # For all-MiniLM-L6-v2 embeddings and Cosine Similarity
+
+# --- Readability Reranking (Novelty 2) ---
+textstat                 # For calculating the Flesch-Kincaid Grade Level
+
+# --- Concept Coverage Validation (Novelty 3) ---
+yake                     # For extracting key technical nouns from textbook chunks
